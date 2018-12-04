@@ -61,7 +61,7 @@ class WP_Post_Meta_Revisioning {
 				$meta_to   = get_post_meta( $compare_to->ID,   $meta_key, true );
 				$args      = array( 'show_split_view' => true );
 				$args      = apply_filters( 'revision_text_diff_options', $args, end( $fields ), $compare_from, $compare_to );
-				$diff      = wp_text_diff( $meta_from[0], $meta_to[0], $args );
+				$diff      = wp_text_diff( !empty($meta_from) ? $meta_from[0] : '', !empty($meta_to) ? $meta_to[0] : '', $args );
 
 				// Add this meta field if it has a diff.
 				if ( ! empty( $diff ) ) {
