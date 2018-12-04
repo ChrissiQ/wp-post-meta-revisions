@@ -233,7 +233,7 @@ class WP_Post_Meta_Revisioning {
 		$single_keys = $this->_wp_post_revision_single_meta_keys();
 		// Save revisioned meta fields.
 		foreach ( $this->_wp_post_revision_meta_keys() as $meta_key ) {
-			$meta_value = get_post_meta( $post_id, $meta_key, in_array( $meta_key, $single_keys ) );
+			$meta_values = get_post_meta( $post_id, $meta_key, in_array( $meta_key, $single_keys ) );
 
 			foreach( $meta_values as $meta_value ) {
 				/*
